@@ -1,16 +1,35 @@
-﻿Random random = new Random(2);
-
-Console.Write("Enter the number of coin flips: ");
-int numFlips = int.Parse(Console.ReadLine());
-
-for (int i = 0; i < numFlips; ++i)
-    Console.WriteLine(CoinFlip(random));
-
-string CoinFlip(Random random)
+﻿namespace ClassWorkConsoleApp
 {
-    int result = random.Next(2);
+    public class CoinFlip
+    {
+        private Random random = new Random(2);
 
-    return (result == 1) 
-        ? "Heads" 
-        : "Tails";
+        public string Flip()
+        {
+            int result = random.Next(2);
+
+            return result == 1
+                ? "Heads"
+                : "Tails";
+        }
+
+        public void FlipMultipleCoins(int numFlips)
+        {
+            for (int i = 0; i < numFlips; ++i)
+                Console.WriteLine(Flip());
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            int numFlips = int.Parse(Console.ReadLine());
+
+            CoinFlip coinFlip = new CoinFlip();
+            Console.Write("Enter the number of coin flips: ");
+
+            coinFlip.FlipMultipleCoins(numFlips);
+        }
+    }
 }
