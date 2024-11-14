@@ -1,4 +1,6 @@
-﻿namespace ClassWorkConsoleApp
+﻿using System;
+
+namespace ClassWorkConsoleApp
 {
     public class CoinFlip
     {
@@ -8,15 +10,17 @@
         {
             int result = random.Next(2);
 
-            return result == 1
-                ? "Heads"
+            return result == 1 
+                ? "Heads" 
                 : "Tails";
         }
 
         public void FlipMultipleCoins(int numFlips)
         {
             for (int i = 0; i < numFlips; ++i)
+            {
                 Console.WriteLine(Flip());
+            }
         }
     }
 
@@ -24,10 +28,10 @@
     {
         static void Main()
         {
-            int numFlips = int.Parse(Console.ReadLine());
-
             CoinFlip coinFlip = new CoinFlip();
+
             Console.Write("Enter the number of coin flips: ");
+            int numFlips = int.Parse(Console.ReadLine());
 
             coinFlip.FlipMultipleCoins(numFlips);
         }
