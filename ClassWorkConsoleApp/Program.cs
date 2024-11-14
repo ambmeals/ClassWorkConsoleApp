@@ -9,6 +9,7 @@ for (int i = 0; i < numFlips; ++i)
 string CoinFlip(Random random)
 {
     int result = random.Next(2);
+
     return (result == 1) 
         ? "Heads" 
         : "Tails";
